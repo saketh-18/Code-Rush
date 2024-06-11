@@ -5,7 +5,8 @@ import { Inter, Space_Grotesk } from 'next/font/google'
 import type { Metadata } from 'next';
 
 import './globals.css';
-
+import '../styles/prism.css';
+import { ThemeProvider } from '@/context/ThemeProvider';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -20,10 +21,10 @@ const spaceGrotesk = Space_Grotesk({
 })
  
 export const metadata: Metadata = {
-  title: 'CodeRush',
+  title: 'DevFlow',
   description: 'A community-driven platform for asking and answering programming questions. Get help, share knowledge, and collaborate with developers from around the world. Explore topics in web development, mobile app development, algorithms, data structures, and more.',
   icons: {
-    icon: '/favicon.ico'
+    icon: '/assets/images/site-logo.svg'
   }
 }
  
@@ -43,7 +44,9 @@ export default function RootLayout({
               }
             }}
           >
+            <ThemeProvider>
               {children}
+            </ThemeProvider>
           </ClerkProvider>
         </body>
       </html>
